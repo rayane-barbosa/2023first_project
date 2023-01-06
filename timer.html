@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My HTML project</title>
+</head>
+<body>
+
+    <form onsubmit="startTimer(event)">
+        <!-- Other form elements go here -->
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+      
+        <script>
+            function startTimer(event) {
+                // Prevent the form from being submitted
+                event.preventDefault();
+            
+                // Set the duration of the timer in minutes
+                var duration = 15;
+            
+                // Open a new window to display the timer
+                var timerWindow = window.open("", "Timer", "height=200,width=200");
+            
+                // Set the timer to run every 1000 milliseconds (1 second)
+                var intervalId = setInterval(function() {
+                    // Decrement the duration
+                    duration--;
+            
+                    // Update the timer display
+                    timerWindow.document.body.innerHTML = duration + " minutes remaining";
+            
+                    // If the timer has reached 0, stop the timer and close the window
+                    if (duration === 0) {
+                    clearInterval(intervalId);
+                    timerWindow.alert('atualizar timeout': AnimationTimeout);
+                    }
+                }, 1000);
+            }
+        </script>
+        
+
+</body>
+</html>
