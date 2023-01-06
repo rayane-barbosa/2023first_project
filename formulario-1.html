@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>My HTML project</title>
+    </head>
+    <body>
+
+        <form onsubmit="saveAndDisplayComment(event)">
+            <!-- Other form elements go here -->
+            <br>
+            <label for="comments">Comments:</label><br>
+            <textarea id="comments" name="comments"></textarea><br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+      
+      <div id="comments-display"></div>
+      
+        <script>
+            function saveAndDisplayComment(event) {
+                // Prevent the form from being submitted
+                event.preventDefault();
+            
+                // Get the comment from the form
+                var comment = document.getElementById("comments").value;
+                // Get the current date and time
+                var date = new Date();
+                var dateTime = date.toLocaleString();
+
+                // Save the comment and date/time in the cache
+                localStorage.setItem("comment", comment);
+                localStorage.setItem("dateTime", dateTime);
+
+                // Display the comment and date/time on the page
+                var commentsDisplay = document.getElementById("comments-display");
+                commentsDisplay.innerHTML = "Comment: " + comment + "<br>" + "Date/Time: " + dateTime;
+            }
+        </script>
+    </body>
+</html>
